@@ -1,7 +1,7 @@
 package com.sargecaballero.coderproject.controller;
 
-import com.sargecaballero.coderproject.service.ClientService;
 import com.sargecaballero.coderproject.repository.entity.Client;
+import com.sargecaballero.coderproject.service.ClientService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;

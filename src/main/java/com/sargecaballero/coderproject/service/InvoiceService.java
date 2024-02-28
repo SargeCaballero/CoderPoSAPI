@@ -1,6 +1,7 @@
 package com.sargecaballero.coderproject.service;
 
 import com.sargecaballero.coderproject.controller.dto.InvoiceDTO;
+import com.sargecaballero.coderproject.externalservice.UTCTime;
 import com.sargecaballero.coderproject.repository.InvoiceHasProductRepository;
 import com.sargecaballero.coderproject.repository.InvoiceRepository;
 import com.sargecaballero.coderproject.repository.ProductRepository;
@@ -18,15 +19,18 @@ import java.util.Optional;
 @Service
 public class InvoiceService {
 
+    private final UTCTime utcTime;
     private final ProductRepository productRepository;
     private final InvoiceRepository invoiceRepository;
     private final InvoiceHasProductRepository invoiceHasProductRepository;
     private static final Logger logger = LoggerFactory.getLogger(InvoiceService.class);
 
     @Autowired
-    public InvoiceService(ProductRepository productRepository,
+    public InvoiceService(UTCTime utcTime,
+                          ProductRepository productRepository,
                           InvoiceRepository invoiceRepository,
                           InvoiceHasProductRepository invoiceHasProductRepository) {
+        this.utcTime = utcTime;
         this.productRepository = productRepository;
         this.invoiceRepository = invoiceRepository;
         this.invoiceHasProductRepository = invoiceHasProductRepository;
