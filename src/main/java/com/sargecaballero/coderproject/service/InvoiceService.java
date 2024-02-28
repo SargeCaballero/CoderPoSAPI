@@ -77,6 +77,10 @@ public class InvoiceService {
         for (InvoiceDTO.InvoiceItem item : products) {
             Product product = productRepository.findById(item.getIdProduct())
                     .orElseThrow(() -> new RuntimeException("Product not found with ID: " + item.getIdProduct()));
+            logger.info("Estamos a punto de salvar el invoiceHasProduct");
+            logger.info("Invoice: {}", invoice);
+            logger.info("Product: {}", product);
+            logger.info("Amount: {}", item.getQuantity());
             invoiceHasProductRepository.saveProductToInvoice(invoice, product, item.getQuantity());
         }
         logger.info("Estamos a punto de salvar el invoice: {}", invoice);

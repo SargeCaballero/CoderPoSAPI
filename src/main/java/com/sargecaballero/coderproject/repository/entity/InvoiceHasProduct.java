@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class InvoiceHasProduct implements Serializable {
     @EmbeddedId
-    private InvoiceHasProductKey id;
+    private InvoiceHasProductKey invoiceHasProductKey;
     private Integer amount;
     private Double price;
     @Column(insertable = false)
@@ -22,6 +22,7 @@ public class InvoiceHasProduct implements Serializable {
     private LocalDateTime createTime;
     @Column(insertable = false, updatable = false)
     private LocalDateTime updateTime;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @MapsId("idInvoice")
     @JoinColumn(name = "idInvoice", nullable = false)

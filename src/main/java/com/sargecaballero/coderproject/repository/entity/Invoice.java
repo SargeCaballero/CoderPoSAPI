@@ -27,7 +27,7 @@ public class Invoice implements Serializable {
     private LocalDateTime createTime;
     @Column(insertable = false, updatable = false)
     private LocalDateTime updateTime;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany (fetch = FetchType.EAGER)
     @JoinTable(name = "InvoiceHasProduct",
             joinColumns = @JoinColumn(name = "idInvoice"),
             inverseJoinColumns = @JoinColumn(name = "idProduct"))
